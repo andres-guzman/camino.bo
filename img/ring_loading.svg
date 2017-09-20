@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#999999;stroke-width:7;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#DBDBDB;stroke-width:7;stroke-miterlimit:10;}
+</style>
+<path id="XMLID_2_" class="st0" d="M50,96C24.6,96,4,75.4,4,50S24.6,4,50,4">
+	<animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite" dur="1s"></animateTransform>
+</path>
+<path id="XMLID_5_" class="st1" d="M50,4c25.4,0,46,20.6,46,46S75.4,96,50,96">
+	<animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite" dur="1s"></animateTransform>
+</path>
+</svg>

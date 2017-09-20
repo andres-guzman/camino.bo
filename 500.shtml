@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es-bo">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Camino — 500</title>
+        <meta name="description" content="Error interno del servidor.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="http://www.camino.bo/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="http://www.camino.bo/favicon.png">
+        <link rel="stylesheet" href="http://www.camino.bo/css/a.css">
+    </head>
+    <body class="error-body">
+        <div id="error-page">
+            <div id="error-header">
+                <a href="http://www.camino.bo/" id="logo">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 762.3 123.8" style="enable-background:new 0 0 762.3 123.8;" xml:space="preserve">
+                        <path class="logo-text" d="M65.6,62.1c0-37,28-61.9,64.8-61.9c28.9,0,44.5,16.3,52.2,31.9l-26.6,12.7c-3.9-9.5-14.2-17.4-25.7-17.4 C110.8,27.5,97,42.4,97,62.1c0,19.6,13.8,34.6,33.4,34.6c11.5,0,21.7-7.9,25.7-17.4l26.6,12.6c-7.7,15.3-23.3,32.1-52.2,32.1 C93.6,124.1,65.6,98.9,65.6,62.1z" />
+                        <path class="logo-text" d="M275.6,123.8l-6.1-17.8h-48.8l-6.1,17.8h-36.2L224.9,0h40.3l46.6,123.8H275.6z M245.1,31.6l-15.8,46.6h31.4L245.1,31.6z" />
+                        <path class="logo-text" d="M428.5,123.8V42l-31.2,81.9h-14.1L351.8,42v81.9h-31.9V0h44.4l26,68.3L416,0h44.4v123.8H428.5z" />
+                        <path class="logo-text" d="M469.5,123.8V0h31.9v123.8H469.5z" />
+                        <path class="logo-text" d="M594.8,123.8l-52.4-71.7v71.7h-31.9V0h32.9l50.1,68.1V0h32.1v123.8H594.8z" />
+                        <path class="logo-text" d="M634.3,61.9c0-36.4,27.5-61.9,64.1-61.9c36.6,0,63.9,25.5,63.9,61.9s-27.3,61.9-63.9,61.9 C661.8,123.8,634.3,98.3,634.3,61.9z M730.9,61.9c0-19.6-12.7-34.6-32.5-34.6c-19.7,0-32.7,15.1-32.7,34.6 c0,19.4,12.9,34.6,32.7,34.6C718.2,96.5,730.9,81.3,730.9,61.9z" />
+                        <polygon class="logo-polygon" points="7.8,12 7.7,15.6 40.5,0.2 24.8,37.9 60.7,12.3 51,49.6 56.4,49.3 41.7,57.7 48.1,30.7 6,61 26.2,15.3 0,27.1 " />
+                    </svg>
+                </a>
+            </div>
+            
+            <p class="error-p">Error 500 - Error interno del servidor</p>
+            <a class="error-a" href="http://www.camino.bo/">Haz click aquí para ir al inicio.</a>
+        </div>
+        
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-106378338-1','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
+</html>

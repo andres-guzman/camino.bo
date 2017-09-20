@@ -1,0 +1,1468 @@
+/*
+    Author: Andres Guzman (andres@camino.bo)
+    Date: September, 2017
+*/
+
+/* fonts
+--------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'Montserrat Light';
+    src: url('fonts/montserratlight/montserrat-light-webfont.woff2') format('woff2'), url('fonts/montserratlight/montserrat-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat Bold';
+    src: url('fonts/montserratbold/montserrat-bold-webfont.woff2') format('woff2'), url('fonts/montserratbold/montserrat-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '8 bit 16';
+    src: url('fonts/8bit16/8bit16-webfont.woff2') format('woff2'), url('fonts/8bit16/8bit16-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* CSS reset
+--------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a {
+    outline: none;
+}
+
+
+/* basic styles
+--------------------------------------------------------------- */
+
+:root {
+    font-size: 16px;
+}
+
+::selection {
+    background: #000000;
+    color: #fff;
+}
+
+::-moz-selection {
+    background: #000000;
+    color: #fff;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    line-height: 1;
+    height: 100%;
+    background-color: #fff;
+}
+
+#nav-language {
+    position: fixed;
+    top: 156px;
+    left: -48px;
+    transform: rotate(-90deg);
+    z-index: 9;
+    color: #000000;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    width: 230px;
+    text-align: right;
+}
+
+#nav-language a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.35s ease 0s;
+}
+
+#nav-language a:hover {
+    color: #7460ee;
+}
+
+
+#nav-language-active {
+    font-family: "Montserrat Bold";
+}
+
+.nav-language-sep {
+    margin: 0 15px;
+}
+
+h1 {
+    color: #000000;
+    font: 1.5rem "Montserrat Light", sans-serif;
+}
+
+h3 {
+    color: #000000;
+    font: 0.9375rem "Montserrat Bold", sans-serif;
+    text-transform: uppercase;
+}
+
+h4 {
+    color: #000000;
+    font: 0.8125rem "Montserrat Bold", sans-serif;
+    text-transform: uppercase;   
+}
+
+
+p {
+    color: #000000;
+    font: 0.8125rem/1.3125rem "Montserrat Light", sans-serif;
+}
+
+
+p a {
+    color: #4e90d0;
+    text-decoration: none;
+    transition: color 0.35s ease;
+}
+
+p a:hover {
+    color: #000000;
+}
+
+.inline-code {
+    font-family: "Montserrat Bold", sans-serif;
+}
+
+/* header
+--------------------------------------------------------------- */
+
+header {
+    position: relative;
+    max-width: 1110px;
+    padding-top: 50px;
+    margin: 0 auto 135px auto;
+    box-sizing: border-box;
+    border-bottom: 1px solid #dfdfdf;
+    padding-bottom: 11px;
+    transition: all 0.35s ease 0s;
+} 
+
+#logo {
+    width: 128px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.logo-polygon {
+    fill: #7460ee;
+}
+
+.logo-text {
+    fill: #000000;
+    transition: fill 0.35s ease 0s;
+}
+
+#logo:hover .logo-text {
+    fill: #7460ee;
+}
+
+#logo-caption {
+    color: #000000;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+}
+
+nav {
+    position: absolute;
+    top: 79px;
+    right: 0;    
+}
+
+nav:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav ul li {
+    display: block;
+    text-align :center;
+}
+
+nav ul li {
+    float: left;
+    margin-right: 50px;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    transition: color 0.35s ease 0s;
+    display: block;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+nav ul li a::after {
+    display: block;
+    content: attr(title);
+    height: 1px;
+    color: transparent;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+nav ul li a:hover {
+    color: #7460ee;
+}
+
+nav ul li:last-of-type {
+    margin-right: 0;
+}
+
+.nav-active {
+    color: #000000;
+    font: 0.8125rem "Montserrat Bold", sans-serif;
+    text-transform: uppercase;
+    display: block;
+}
+
+
+/* [main] projects
+--------------------------------------------------------------- */
+
+main {
+    max-width: 1110px;
+    margin: 0 auto;
+    box-sizing: border-box;    
+    animation-name: marginAdd;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation-duration: 360ms;
+}
+
+#gallery-filter-nav {
+    max-width: 480px;
+    margin: 0 auto 25px auto;
+    color: #000000;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    text-align: center;
+}
+
+#gallery-filter-nav::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#gallery-filter-nav li {
+    float: left;
+}
+
+#gallery-filter-nav li a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.35s ease;
+}
+
+#gallery-filter-nav a:hover {
+    color: #7460ee;
+}
+
+.gallery-filter-active {
+    font-family: "Montserrat Bold", sans-serif;
+}
+
+.gallery-filter-caption {
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.gallery-filter-sep {
+    font-size: 0.75rem;
+    margin: 0 15px;
+}
+
+#gallery {
+    box-sizing: border-box;
+    margin-bottom: 75px;
+}
+
+#gallery:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.item {
+    float: left;
+    max-width: 32.9%;
+    margin-right: 0.4%;
+    margin-bottom: 0.4%;
+}
+
+.project-window {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+.project-window img {
+    width: 100%;
+    vertical-align: top;
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.37s ease;
+    color: #15161f;
+    font: 0.5rem "Montserrat Light", sans-serif;
+}
+
+.project-window .project-name {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    background-color: rgba(34, 27, 104, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: opacity 0.37s ease;
+    text-decoration: none;
+    font: 1.5rem "Montserrat Light", sans-serif;
+    color: #ffffff;
+    text-align: center;
+    z-index: 999;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.project-name .project-category {
+    color: rgba(255, 255, 255, 0.45);
+    font: 0.6875rem "Montserrat Light", sans-serif;
+    text-transform: uppercase;
+    padding-top: 10px;
+    letter-spacing: 2px;
+}
+
+.project-window:hover .project-name {
+    opacity: 1;
+}
+
+.project-window:hover img {
+    transform: scale(1.25);
+}
+
+#go-up {
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    text-align: center;
+    display: block;
+    width: 100px;
+    color: #000000;
+    text-decoration: none;
+    margin: 0 auto;
+    transition: color 0.35s ease 0s;
+    margin-bottom: 75px;
+}
+
+#go-up svg {
+    max-width: 30px;
+    display: block;
+    margin: 0 auto 5px auto;
+}
+
+.icon-goup {
+    fill: #ffffff;
+}
+
+#go-up:hover {
+    color: #7460ee;
+}
+
+
+/* footer
+--------------------------------------------------------------- */
+
+footer {
+    max-width: 1110px;
+    margin: 0 auto;
+    border-top: 1px solid #dfdfdf;
+    padding: 25px 0 29px 0;
+    position: relative;
+    width: 100%;
+}
+
+#nav-social a {
+    color: #000000;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    text-decoration: none;
+    margin-right: 30px;
+    transition: color 0.35s ease;
+}
+
+#nav-social a:hover {
+    color: #7460ee;
+}
+
+#copyright {
+    color: #000000;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    position: absolute;
+    top: 25px;
+    right: 0;
+}
+
+
+
+/* about
+--------------------------------------------------------------- */
+
+main#about h1 {
+    max-width: 630px;
+    text-align: center;
+    margin: 0 auto 35px auto;
+}
+
+main#about p {
+    max-width: 630px;
+    text-align: center;
+    margin: 0 auto 35px auto;
+}
+
+main#about img {
+    display: block;
+    margin: 0 auto 75px auto;
+}
+
+
+
+/* project view modal [fancybox]
+--------------------------------------------------------------- */
+
+#project-view-modal {
+    position: relative;
+    overflow: initial;
+    transition: all 0.35s ease 0s;
+} 
+
+.project-view-close {
+    position: absolute!important;
+    top: -47px;
+    right: -47px;
+    width: 55px;
+    height: 55px;
+    padding: 15px;
+    text-decoration: none;
+    box-sizing: border-box;
+    margin: 0!important;
+    z-index: 999;
+}
+
+.project-view-close:hover .icon_close {
+    stroke: #000;
+}
+
+.icon_close {
+    stroke: #ffffff;
+    stroke-width: 5;
+    stroke-miterlimit: 10;
+    transition: all 0.35s ease 0s;
+    stroke-linecap: square;
+}
+
+.project-view-close:hover {
+    color: #3b3d4a;
+}
+
+#project-view-frame {
+    position: relative;
+    max-width: 1314px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 0 5px 7px rgba(0, 0, 0, 0.15);
+    margin: 0 auto;
+}
+
+#project-view-image {
+    background-color: #ffffff;
+    padding: 40px;
+    box-sizing: border-box;
+    width: 65%;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#project-view-image img {
+    max-width: 100%;
+}
+
+#project-view-description {
+    position: relative;
+    padding: 40px;
+    background-color: #7460ee;
+    width: 35%;
+    box-sizing: border-box;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#project-view-header {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#project-view-header h1 {
+    color: #ffffff;    
+}
+
+#project-view-header h2 {
+    color: #ffffff;
+    font: 0.6875rem "Montserrat Light", sans-serif;
+    text-transform: uppercase;
+}
+
+#project-view-text {
+    color: #ffffff;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#project-view-date {
+    color: #ffffff;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#project-view-counter {
+    color: #ffffff;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+}
+
+#project-view-download {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+#project-view-download a {
+    color: #ffffff;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    text-decoration: none;
+}
+
+
+/* fancybox propper css */
+
+.fancybox-enabled {
+    overflow: hidden;
+}
+
+.fancybox-enabled body {
+  overflow: visible;
+  height: 100%; 
+}
+
+.fancybox-is-hidden {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    visibility: hidden;
+}
+
+.fancybox-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99993;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.fancybox-container ~ .fancybox-container {
+    z-index: 99992;
+}
+
+.fancybox-slide > * {
+    display: inline-block;
+    position: relative;
+    margin: 44px 0 44px;
+    border-width: 0;
+    vertical-align: middle;
+    text-align: left;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-bg,
+.fancybox-stage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.fancybox-bg {
+    background: #15161f;
+    opacity: 0;
+    transition-duration: inherit;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.47, 0, 0.74, 0.71);
+}
+
+.fancybox-is-open .fancybox-bg {
+    opacity: 0.97;
+    transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.fancybox-stage {
+    overflow: hidden;
+    direction: ltr;
+    z-index: 99994;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.fancybox-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  outline: none;
+  white-space: normal;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 99994;
+  -webkit-overflow-scrolling: touch;
+  display: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; 
+}
+
+.fancybox-slide::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  width: 0; 
+}
+
+.fancybox-is-sliding .fancybox-slide,
+.fancybox-slide--previous,
+.fancybox-slide--current,
+.fancybox-slide--next {
+  display: block;
+}
+
+.fancybox-error {
+  margin: 0;
+  padding: 40px;
+  width: 100%;
+  max-width: 380px;
+  background: #fff;
+  cursor: default; }
+
+.fancybox-error p {
+  margin: 0;
+  padding: 0;
+  color: #444;
+  font: 16px/20px "Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+.fancybox-close-small {
+  display: none;
+}
+
+.fancybox-fx-fade.fancybox-slide--previous,
+.fancybox-fx-fade.fancybox-slide--next {
+    opacity: 0;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.fancybox-fx-fade.fancybox-slide--current {
+    opacity: 1;
+}
+
+
+
+/* contact
+--------------------------------------------------------------- */
+
+#contact-flex {
+    display: flex;
+    flex-direction: column;
+    min-height: 73vh;
+}
+
+main#contact {
+    max-width: 630px;
+    flex: 1;
+}
+
+main#contact h1 {
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.contact-card {
+    width: 215px;
+    margin: 0 auto 45px auto;
+}
+
+.contact-card a {
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    height: 32px;
+    display: block;
+    text-align: center;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    text-decoration: none;
+    border-radius: 16px;
+    line-height: 32px;
+    transition: background-color 0.35s ease;
+}
+
+.contact-card a:hover {
+    background-color: #7460ee;
+}
+
+#form-card {
+    margin-bottom: 75px;
+}
+
+#form-card > p {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+form {
+    max-width: 100%;
+}
+
+form > table {
+    width: 100%;
+}
+
+#name,
+#email,
+#message {
+    font: 13px "Montserrat Light", sans-serif;
+    color: #000000;
+    width: 100%;
+    padding: 8px 0;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: transparent;
+    border-color: #565658;
+    -moz-border-image: none;
+    -webkit-border-image: none;
+    -o-border-image: none;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    box-shadow: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+#message {
+    resize: none;
+    height: 34px;
+    margin-bottom: 0px;
+    transition: height 0.55s ease;
+}
+
+#message:focus {
+    height: 80px;
+}
+
+#human {
+    width: 100%;
+    padding: 8px 0;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    color: #565658;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: transparent;
+    border-color: #565658;
+    -moz-border-image: none;
+    -webkit-border-image: none;
+    -o-border-image: none;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    box-shadow: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-transition: all 0.25s ease;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+.control-label {
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    color: #565658;
+}
+
+#name:focus,
+#email:focus,
+#message:focus,
+#human:focus {
+    border-bottom: 1px solid #2beda0;
+    box-shadow: 0 1px 0 0 #2beda0;
+    outline-width: 0;
+}
+
+#submit {
+    width: 160px;
+    height: 34px;
+    background-color: #a2a6ad;
+    color: #fbfbfb;
+    border: none;
+    font: 11px "Montserrat Light", sans-serif;
+    text-transform: uppercase;
+    float: right;
+    -moz-transition: background-color 0.35s ease;
+    -webkit-transition: background-color 0.35s ease;
+    -o-transition: background-color 0.35s ease;
+    transition: background-color 0.35s ease;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#submit:hover {
+    color: #ffffff;
+    background-color: #7460ee;
+}
+
+.submission-success {
+    color: #30d996;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    padding: 5px 0;
+    margin: 0 auto 45px auto;
+    text-align: center;
+    width: 100%;
+}
+
+.submission-error {
+    color: #ffffff;
+    background-color: #f20a43;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    padding: 5px 0;
+    margin: 0 auto 45px auto;
+    text-align: center;
+    width: 100%;
+}
+
+.text-danger {
+    color: #7460ee;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    padding-top: 4px;
+    margin-bottom: 36px;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.tdHuman {
+    width: 60px;
+    display: inline-block;
+}
+
+.tdControl {
+    width: 100%;
+}
+
+
+
+/* blog
+--------------------------------------------------------------- */
+
+article {
+    max-width: 890px;
+    margin: 0 auto 50px auto;
+}
+
+main#blog article:last-of-type {
+    margin-bottom: 50px;
+}
+
+article > a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;    
+}
+
+.blog-entry-link {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.blog-entry-content {
+    padding: 30px 30px 30px 0;
+    box-sizing: border-box;
+}
+
+.blog-entry-image {
+    max-width: 400px;
+}
+
+.blog-entry-image img {
+    width: 100%;
+    vertical-align: top;
+}
+
+article a > .blog-entry-content .blog-entry-date,
+article a > .blog-entry-content h3,
+article a > .blog-entry-content .blog-entry-preview {
+    transition: color 0.35s ease;
+}
+
+article a:hover .blog-entry-date,
+article a:hover h3,
+article a:hover .blog-entry-preview {
+    color: #7460ee;
+}
+
+article h3 {
+    font: 1.5rem "8 bit 16", sans-serif;
+    margin-bottom: 10px;
+}
+
+.blog-entry-date {
+    color: rgba(0, 0, 0, 1);
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    margin-bottom: 35px;
+}
+
+.blog-entry h1 {
+    margin-bottom: 35px;
+}
+
+.blog-entry h4 {
+    margin-bottom: 35px;
+}
+
+.blog-entry .blog-entry-date {
+    margin-bottom: 35px;
+}
+
+.blog-entry p {
+    margin-bottom: 35px;    
+}
+
+.blog-entry p:last-of-type {
+    margin-bottom: 0;
+}
+
+.blog-entry > a {
+    color: #4e90d0;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    transition: color 0.35s ease;
+}
+
+.blog-entry > a:hover {
+    color: #000000;
+}
+
+.blog-entry > img {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+#blog-entry-footer {
+    padding: 0;
+    background-color: #ffffff;
+    max-width: 890px;
+    margin: 0 auto 75px auto;
+}
+
+#blog-entry-footer h4 {
+    color: #ffffff;
+    background-color: #000000;
+    margin-bottom: 15px;
+    padding: 4px;
+}
+
+#blog-entry-footer ul {
+    margin-bottom: 70px;
+}
+
+#blog-entry-footer ul li a {
+    color: #7460ee;
+    width: 100%;
+    padding: 4px 0 15px 0;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid #dfdfdf;
+    margin-bottom: 15px;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    transition: color 0.35s ease;
+}
+
+#blog-entry-footer ul li a:hover {
+    color: #000000;
+}
+
+.article-go-back {
+    color: #000000;
+    font: 0.8125rem "Montserrat Light", sans-serif;
+    text-decoration: none;
+    transition: color 0.35s ease;
+    text-align: center;
+    display: block;
+}
+
+.article-go-back:hover {
+    color: #4e90d0;
+}
+
+pre {
+    margin-bottom: 35px!important;
+    background-color: #eef1f5;
+    padding: 30px;
+}
+
+
+/* error pages
+--------------------------------------------------------------- */
+
+.error-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 20px solid #26282a;
+    box-sizing: border-box;
+}
+
+#error-page {
+    max-width: 462px;
+    text-align: center;
+}
+
+#error-header {
+    margin-bottom: 35px;
+}
+
+#error-header #logo {
+    width: 164px;
+}
+
+.error-a {
+    color: #7460ee;
+    font: 0.8125rem "Montserrat Light", sans-serif;    
+}
+
+/* smoothstate transitions
+--------------------------------------------------------------- */
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        padding-top: 0px;
+    }
+
+    100% {
+        opacity: 1;
+        padding-top: 15px;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        padding-top: 0px;
+    }
+
+    100% {
+        opacity: 1;
+        padding-top: 15px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        padding-top: 0px;
+    }
+
+    100% {
+        opacity: 1;
+        padding-top: 15px;
+    }
+}
+
+/* page exits */
+.m-scene .scene_element {
+    -webkit-animation-duration: 0.4s;
+    -moz-animation-duration: 0.4s;
+    -o-animation-duration: 0.4s;
+    animation-duration: 0.4s; /* 0.33s */
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.m-scene .scene_element--fadein {
+    -webkit-animation-name: fadeIn;
+    -moz-animation-name: fadeIn;
+    -o-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+
+.m-scene .scene_element--delayed {
+    -webkit-animation-delay: 0.375s; /*0.33s*/
+    -moz-animation-delay: 0.375s;
+    -o-animation-delay: 0.375s;
+    animation-delay: 0.375s;
+}
+
+.m-scene.is-exiting .scene_element {
+    -webkit-animation-direction: alternate-reverse;
+    -moz-animation-direction: alternate-reverse;
+    -o-animation-direction: alternate-reverse;
+    animation-direction: alternate-reverse;
+}
+
+.m-scene.is-exiting .scene_element--delayed {
+    -webkit-animation-delay: 0.375s; /*0.33s*/
+    -moz-animation-delay: 0.375s;
+    -o-animation-delay: 0.375s;
+    animation-delay: 0.375s;
+}
+
+.m-scene.is-exiting .scene_element--noexiting {
+    -webkit-animation-direction: alternate-reverse;
+    -moz-animation-direction: alternate-reverse;
+    -o-animation-direction: alternate-reverse;
+    animation-direction: alternate-reverse;
+}
+
+/* code higlight
+--------------------------------------------------------------- */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/* media queries
+--------------------------------------------------------------- */
+
+@media screen and (max-width: 1540px) {
+    .fancybox-slide {
+        padding: 0px 40px;
+        overflow-x: hidden;
+    }
+
+    #project-view-modal {
+        width: 100%;
+    }
+
+    #project-view-frame {
+        flex-direction: column;
+    }
+
+    #project-view-image {
+        width: 100%;
+        padding: 20px;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 5px;
+    }
+
+    #project-view-description {
+        width: 100%;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 5px;
+    }
+
+    #project-view-counter {
+        margin-bottom: 24px;
+    }
+
+    #project-view-download {
+        position: relative;
+        left: auto;
+        bottom: auto;
+    }    
+}
+
+@media screen and (max-width: 1340px) {
+    #nav-language {
+        transform: initial;
+        top: 10px;
+        left: 10px;
+        position: relative;
+        text-align: center;
+        width: auto;
+    }
+
+    #main {
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    header {
+        margin-bottom: 67px;
+    }
+
+    #logo {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+    }
+
+    #logo-caption {
+        display: none;
+    }
+
+    nav {
+        position: initial;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    nav ul li:last-of-type {
+        margin-right: 0;
+    }
+
+    nav ul li {
+        margin-right: 20px;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .fancybox-slide {
+        padding: 20px;
+    }
+
+    h1 {
+        font: 0.95rem "Montserrat Bold", sans-serif;
+    }
+
+    .item {
+        max-width: 49.6%;
+        margin-bottom: 3%;
+    }
+
+    #nav-social {
+        text-align: center;
+    }
+
+    #copyright {
+        display: none;
+    }
+
+    #project-view-description {
+        padding: 20px;
+    }
+
+    .project-view-close {
+        top: -59px;
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {    
+    .is-hidden {
+        display: none;
+    }
+
+    .item {
+        max-width: 100%;
+    }
+
+    .project-window {
+        width: 99%;
+    }
+
+    #gallery-filter-nav {
+        max-width: 314px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .gallery-filter-caption {
+        display: none;
+    }
+}
+
+
